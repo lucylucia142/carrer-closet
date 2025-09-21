@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../Server/career_closet-api"
+		},
+		{
+			"path": "../../../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "career_closet-api"
+	}
+}

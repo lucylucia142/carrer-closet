@@ -1,0 +1,20 @@
+.Dashboard{
+    border: none;
+    
+}
+
+body {
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    margin: auto;
+    background: linear-gradient(to right, #304352, #d7d2cc);
+}
+
+h2{
+    color: rgb(0, 0, 0);
+    font-size: 32px;
+}
+h1{
+    color: rgb(0, 0, 0);
+}
