@@ -52,7 +52,7 @@ const OrderConfirmation = () => {
           onClick={() => navigate('/')}
           className="w-full sm:w-auto bg-black text-white px-8 py-3 text-sm font-medium rounded hover:bg-gray-800 transition-colors"
         >
-          Continue Shoppin
+          Continue Shopping
         </button>
       </div>
     </div>
