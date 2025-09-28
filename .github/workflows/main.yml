@@ -21,7 +21,7 @@ jobs:
         run: npm ci
 
       - name: Build project
-        run: npm run build   # this should generate the dist/ folder
+        run: npm run build   # now this runs vite build
 
       - name: List files (debugging)
         run: ls -R
@@ -35,4 +35,4 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: us-east-1
-          SOURCE_DIR: dist
+          SOURCE_DIR: dist   # vite outputs to dist
