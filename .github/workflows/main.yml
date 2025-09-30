@@ -1,9 +1,9 @@
-name: Deploy to S3
+name: Deploy React Vite to S3
 
 on:
   push:
     branches:
-      - main
+      - main   # adjust if your default branch is different
 
 jobs:
   deploy:
@@ -11,21 +11,26 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18   # Vite works well with Node 16+, 18 is LTS
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build project
-        run: npm run build  # this now runs vite build
+        run: npm run build   # runs "vite build", outputs to dist/
 
       - name: Deploy to S3
         uses: jakejarvis/s3-sync-action@master
         with:
           args: --delete
         env:
-          AWS_S3_BUCKET: www.careerclosert.com
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}   # set this in repo secrets
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: us-east-1
-          SOURCE_DIR: "dist"
+          SOURCE_DIR: dist
